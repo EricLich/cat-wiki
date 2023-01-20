@@ -3,7 +3,7 @@ import Logo from "../assets/images/catwiki-logo.svg";
 
 const Header = () => {
   return (
-    <header className="h-[100px] flex items-center justify-start">
+    <header className="h-[70px] lg:h-[100px] flex items-center justify-start">
       <Link to={"/"}>
         <img
           src={Logo}
