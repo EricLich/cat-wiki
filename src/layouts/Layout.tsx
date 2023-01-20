@@ -7,7 +7,9 @@ const Layout = () => {
   return (
     <div className="w-full max-w-smMaxW lg:max-w-lgMaxWidth mx-auto font-mont">
       <Header />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );
