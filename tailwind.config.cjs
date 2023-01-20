@@ -7,7 +7,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      width: {
+      maxWidth: {
         'lgMaxWidth': '1248px',
         'smMaxW': '90%',
       },
