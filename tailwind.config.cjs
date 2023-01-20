@@ -29,7 +29,7 @@ module.exports = {
       },
       colors: {
         'breedsBg': '#E3E1DC',
-        'normalText': '#291507',
+        'normalTextColor': '#291507',
       }
     },
   },
