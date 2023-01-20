@@ -2,13 +2,19 @@ import React from "react";
 
 const SearchBar = () => {
   return (
-    <div className="flex items-center justify-between gap-2 lg:px-[26px] bg-white w-full lg:max-w-[395px] lg:h-[70px] rounded-[59px]">
+    <div className="flex items-center justify-between gap-2 px-[13px] lg:px-[26px] bg-white w-full max-w-[91px] lg:max-w-[395px] h-[30px] lg:h-[70px] rounded-[59px]">
       <input
         type="text"
-        className="h-[70%] flex-1 text-normalText focus:outline-none"
+        className="hidden lg:block h-[70%] flex-1 smHeroDescLeading lg:text-normalText focus:outline-none"
         placeholder="Enter your breed"
       />
-      <button className="w-[17px]">
+
+      <input
+        type="text"
+        className="lg:hidden smHeroDescLeading w-[80%] text-xs focus:outline-none"
+        placeholder="Search"
+      />
+      <button className="w-[10px] lg:w-[17px]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
