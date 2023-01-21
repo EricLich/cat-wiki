@@ -13,7 +13,7 @@ const CustomImage: React.FC<CustomImageProps> = ({ alt, src, className }) => {
   console.log(className);
   return (
     <>
-      {loadingImage && <Skeleton className={className} highlightColor="#b5a599" />}
+      {loadingImage && <Skeleton className={className} baseColor="#c4b9af" highlightColor="#b5a599" />}
       <img
         src={src}
         alt={alt}
