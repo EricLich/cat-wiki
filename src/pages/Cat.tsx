@@ -1,15 +1,23 @@
-import React from "react";
-import { useQuery } from "react-query";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useQuery } from "react-query";
+
 import { Cat as CatType } from "../utils/types";
+import { getCats } from "../api/cats.api";
+import CatFullInfo from "../components/CatFullInfo";
 
 const Cat = () => {
+  const [selectedCat, setSelectedCat] = useState<CatType>();
   let { catId } = useParams();
-  const { data } = useQuery(["cats"]);
+  const { data } = useQuery(["cats"], getCats);
 
-  const selectedCat: CatType = (data as CatType[]).find((cat: CatType) => cat.id === catId)!;
-  console.log(selectedCat);
-  return <div>{selectedCat.name}</div>;
+  useEffect(() => {
+    if (data) {
+      setSelectedCat((data as CatType[])?.find((cat: CatType) => cat.id === catId));
+    }
+  }, [data]);
+
+  return <>{selectedCat ? <CatFullInfo selectedCat={selectedCat!} /> : "loading..."}</>;
 };
 
 export default Cat;

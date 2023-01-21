@@ -20,16 +20,21 @@ module.exports = {
         'lgHeroDesc': '24px',
         'smHeroDesc': '10px',
         'normalText': '18px',
+        'lgCatDetails': '16px',
+        'lgCatPageTitle': '36px',
       },
       lineHeight: {
         'lgTitleLeading': '59px',
         'smTitleLeading': '49px',
         'lgHeroDescLeading': '29px',
         'smHeroDescLeading': '12px',
+        'lgCatPageTitleLeading': '44px',
       },
       colors: {
         'breedsBg': '#E3E1DC',
         'normalTextColor': '#291507',
+        'filledLevel': '#544439',
+        'notFilledLevel': '#E0E0E0',
       }
     },
   },
