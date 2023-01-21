@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
+import React, { useEffect, useState } from "react";
+
+import DiscoverBreedsShowcase from "./DiscoverBreedsShowcase";
 import { getCats, getDiscoverCatsImages } from "../api/cats.api";
 
 const DiscoverBreeds = () => {
@@ -7,7 +10,7 @@ const DiscoverBreeds = () => {
   const {
     data: cats,
     error: catFetchError,
-    isFetching,
+    isLoading,
   } = useQuery(["cats"], getCats, {
     refetchOnWindowFocus: false,
     refetchInterval: 360000,
@@ -16,7 +19,7 @@ const DiscoverBreeds = () => {
   const {
     data: catImages,
     error: catImagesFetchError,
-    isFetching: fetchingCatImages,
+    isLoading: fetchingCatImages,
   } = useQuery(["catImages"], () => getDiscoverCatsImages(imagesIds), {
     enabled: imagesIds.length > 0,
     refetchOnWindowFocus: false,
@@ -24,22 +27,26 @@ const DiscoverBreeds = () => {
   });
 
   useEffect(() => {
-    if (!isFetching) {
+    if (!isLoading) {
       setImagesIds(cats!.map((cat) => cat.reference_image_id).slice(0, 4));
     }
-  }, [isFetching]);
-
-  console.log(catImages);
+  }, [isLoading]);
 
   return (
     <section id="discover-breeds" className="w-full bg-breedsBg h-[650px] rounded-b-3xl pt-[40px] px-[108px]">
       <p className="relative text-normalText text-normalTextColor">
         Most Searched Breeds
-        <span className="absolute top-[120%] w-[60px] h-[3px] bg-normalTextColor"></span>
+        <span className="absolute top-[120%] w-[60px] h-[3px] bg-normalTextColor left-0"></span>
       </p>
-      <h1 className="text-normalTextColor text-lgTitle max-w-[540px] font-bold leading-lgTitleLeading mt-[48px]">
-        66+ Breeds For you to discover
-      </h1>
+      <div className="flex justify-between mt-[48px] mb-[48px]">
+        <h1 className="text-normalTextColor text-lgTitle max-w-[540px] font-bold leading-lgTitleLeading ">
+          66+ Breeds For you to discover
+        </h1>
+        <Link to={"/cats"} className="self-end">
+          See more
+        </Link>
+      </div>
+      <DiscoverBreedsShowcase catImages={catImages} />
     </section>
   );
 };
