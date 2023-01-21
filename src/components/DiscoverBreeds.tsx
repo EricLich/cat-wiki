@@ -26,6 +26,8 @@ const DiscoverBreeds = () => {
     refetchInterval: 360000,
   });
 
+  console.log(fetchingCatImages);
+
   useEffect(() => {
     if (!isLoading) {
       setImagesIds(cats!.map((cat) => cat.reference_image_id).slice(0, 4));
@@ -46,7 +48,7 @@ const DiscoverBreeds = () => {
           See more
         </Link>
       </div>
-      <DiscoverBreedsShowcase catImages={catImages} />
+      <DiscoverBreedsShowcase catImages={catImages} fetchingCatImages={fetchingCatImages} />
     </section>
   );
 };
