@@ -51,7 +51,7 @@ const DiscoverBreeds = () => {
           <span>→</span>
         </Link>
       </div>
-      <DiscoverBreedsShowcase catImages={catImages} fetchingCatImages={fetchingCatImages} />
+      <DiscoverBreedsShowcase catImages={catImages} fetchingCatImages={fetchingCatImages && isLoading} />
     </section>
   );
 };

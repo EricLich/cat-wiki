@@ -13,16 +13,16 @@ type CatFullInfoProps = {
 
 const CatFullInfo: React.FC<CatFullInfoProps> = ({ selectedCat, catFeaturedImage, fetchingCatImages }) => {
   return (
-    <section id="cat-info" className="flex items-start px-[52px] gap-[115px] mt-12">
+    <section id="cat-info" className="flex items-start gap-[115px] mt-12">
       {catFeaturedImage ? (
         <CustomImage
           src={catFeaturedImage.url}
           alt={`${selectedCat.name} featured image`}
-          className="!h-[371px] !w-[371px] !object-cover !rounded-3xl"
+          className="!h-[470px] !w-[470px] !object-cover !rounded-3xl"
           extraLoader={fetchingCatImages}
         />
       ) : (
-        <div className="!h-[371px] !w-[371px] !object-cover !rounded-3xl"></div>
+        <div className="!h-[470px] !w-[470px] !object-cover !rounded-3xl"></div>
       )}
       <div className="flex flex-col items-start justify-start max-w-[600px]">
         <h2 className="text-normalTextColor text-lgCatPageTitle leading-lgCatPageTitleLeading font-semibold mb-6">

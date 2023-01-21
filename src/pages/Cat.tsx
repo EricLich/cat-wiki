@@ -28,7 +28,12 @@ const Cat = () => {
     }
   }, [data]);
 
-  if (!catImages) return "Loading...";
+  if (!catImages)
+    return (
+      <div className="h-[85vh] text-normalTextColor text-lgTitle grid place-content-center font-semibold">
+        <h2>Loading cat...</h2>
+      </div>
+    );
 
   return (
     <>

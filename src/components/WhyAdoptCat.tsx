@@ -4,6 +4,7 @@ import React from "react";
 import SleepingCat from "../assets/images/image-2.png";
 import PawsCat from "../assets/images/image-1.png";
 import BackpackCat from "../assets/images/image-3.png";
+import CustomImage from "./CustomImage";
 
 const WhyAdoptCat = () => {
   return (
@@ -27,10 +28,14 @@ const WhyAdoptCat = () => {
       </div>
       <div className="flex items-start gap-7">
         <div className="flex flex-col items-end justify-start">
-          <img src={SleepingCat} alt="cat inside backpack" className="w-[273px] h-[167px] mb-[28px]" />
-          <img src={PawsCat} alt="cat inside backpack" className="w-[195px] h-[293px]" />
+          <CustomImage
+            src={SleepingCat}
+            alt="cat inside backpack"
+            className="!w-[273px] !h-[167px] !mb-[28px] !rounded-[10px]"
+          />
+          <CustomImage src={PawsCat} alt="cat inside backpack" className="!w-[195px] !h-[293px] !rounded-[10px]" />
         </div>
-        <img src={BackpackCat} alt="cat inside backpack" className="w-[238px] " />
+        <CustomImage src={BackpackCat} alt="cat inside backpack" className="!w-[238px] !h-[385px] !rounded-[10px]" />
       </div>
     </section>
   );
