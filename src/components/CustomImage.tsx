@@ -6,14 +6,15 @@ type CustomImageProps = {
   src: string;
   alt: string;
   className: string;
+  extraLoader?: boolean;
 };
 
-const CustomImage: React.FC<CustomImageProps> = ({ alt, src, className }) => {
+const CustomImage: React.FC<CustomImageProps> = ({ alt, src, className, extraLoader }) => {
   const [loadingImage, setLoadingImage] = useState<boolean>(true);
   console.log(className);
   return (
     <>
-      {loadingImage && <Skeleton className={className} baseColor="#c4b9af" highlightColor="#b5a599" />}
+      {(loadingImage || extraLoader) && <Skeleton className={className} baseColor="#c4b9af" highlightColor="#b5a599" />}
       <img
         src={src}
         alt={alt}

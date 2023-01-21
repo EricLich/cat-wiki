@@ -18,6 +18,7 @@ const DiscoverBreedsShowcase: React.FC<DiscoverBreedsShowcaseProps> = ({ catImag
             src={img.url}
             alt={`${img.breeds[0].name} image`}
             className="!w-[220px] !h-[220px] !object-cover !rounded-3xl"
+            extraLoader={fetchingCatImages}
           />
           <p className="mt-5 text-normalText font-semibold">{img.breeds[0].name}</p>
         </Link>

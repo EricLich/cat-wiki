@@ -24,9 +24,8 @@ const DiscoverBreeds = () => {
     enabled: imagesIds.length > 0,
     refetchOnWindowFocus: false,
     refetchInterval: 360000,
+    cacheTime: 360000,
   });
-
-  console.log(fetchingCatImages);
 
   useEffect(() => {
     if (!isLoading) {
@@ -44,8 +43,12 @@ const DiscoverBreeds = () => {
         <h1 className="text-normalTextColor text-lgTitle max-w-[540px] font-bold leading-lgTitleLeading ">
           66+ Breeds For you to discover
         </h1>
-        <Link to={"/cats"} className="self-end">
-          See more
+        <Link
+          to={"/cats"}
+          className="self-end text-normalText flex items-center gap-2 text-normalTextColor/60 font-bold uppercase"
+        >
+          <p>See more</p>
+          <span>→</span>
         </Link>
       </div>
       <DiscoverBreedsShowcase catImages={catImages} fetchingCatImages={fetchingCatImages} />
