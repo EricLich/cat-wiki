@@ -3,13 +3,24 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 
 import { Cat as CatType } from "../utils/types";
-import { getCats } from "../api/cats.api";
+import { getCatImages, getCats } from "../api/cats.api";
 import CatFullInfo from "../components/CatFullInfo";
+import OtherCatImages from "../components/OtherCatImages";
 
 const Cat = () => {
   const [selectedCat, setSelectedCat] = useState<CatType>();
   let { catId } = useParams();
   const { data } = useQuery(["cats"], getCats);
+
+  const {
+    data: catImages,
+    error: catImagesFetchError,
+    isLoading: fetchingCatImages,
+  } = useQuery(["specificCatImages"], () => getCatImages(catId!), {
+    enabled: selectedCat !== undefined,
+    cacheTime: 0,
+    refetchOnWindowFocus: false,
+  });
 
   useEffect(() => {
     if (data) {
@@ -17,7 +28,14 @@ const Cat = () => {
     }
   }, [data]);
 
-  return <>{selectedCat ? <CatFullInfo selectedCat={selectedCat!} /> : "loading..."}</>;
+  if (!catImages) return "Loading...";
+
+  return (
+    <>
+      <CatFullInfo selectedCat={selectedCat!} catFeaturedImage={catImages[0]} fetchingCatImages={fetchingCatImages} />
+      <OtherCatImages otherImages={catImages.slice(1, catImages.length)} />
+    </>
+  );
 };
 
 export default Cat;

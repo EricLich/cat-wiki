@@ -22,7 +22,7 @@ export const getDiscoverCatsImages = async (breedImagesIds: string[]): /* Promis
 
 export const getCatImages = async (breedId: string): Promise<CatImageResponse[]> => {
   try {
-    const res = await axiosInstance.get(`${import.meta.env.VITE_API_URL}/images/search?limit=9&breed_ids=${breedId}`)
+    const res = await axiosInstance.get(`${import.meta.env.VITE_API_URL}/images/search?limit=8&breed_ids=${breedId}`)
     return res.data
   } catch (error: any) {
     throw new Error(error.message);

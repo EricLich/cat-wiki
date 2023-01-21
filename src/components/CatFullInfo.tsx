@@ -1,30 +1,22 @@
 import React from "react";
 import { useQuery } from "react-query";
 import { getCatImages } from "../api/cats.api";
-import { Cat } from "../utils/types";
+import { Cat, CatImageResponse } from "../utils/types";
 import CatLevel from "./CatLevel";
 import CustomImage from "./CustomImage";
 
 type CatFullInfoProps = {
   selectedCat: Cat;
+  catFeaturedImage: CatImageResponse;
+  fetchingCatImages: boolean;
 };
 
-const CatFullInfo: React.FC<CatFullInfoProps> = ({ selectedCat }) => {
-  const {
-    data: catImages,
-    error: catImagesFetchError,
-    isLoading: fetchingCatImages,
-  } = useQuery(["specificCatImages"], () => getCatImages(selectedCat.id), {
-    enabled: true,
-    cacheTime: 0,
-    refetchOnWindowFocus: false,
-  });
-
+const CatFullInfo: React.FC<CatFullInfoProps> = ({ selectedCat, catFeaturedImage, fetchingCatImages }) => {
   return (
-    <section id="cat-info" className="flex items-start px-[52px] gap-[115px]">
-      {catImages ? (
+    <section id="cat-info" className="flex items-start px-[52px] gap-[115px] mt-12">
+      {catFeaturedImage ? (
         <CustomImage
-          src={catImages[0].url}
+          src={catFeaturedImage.url}
           alt={`${selectedCat.name} featured image`}
           className="!h-[371px] !w-[371px] !object-cover !rounded-3xl"
           extraLoader={fetchingCatImages}
