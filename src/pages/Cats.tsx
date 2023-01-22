@@ -5,6 +5,7 @@ import { useQuery } from "react-query";
 import BackpackCat from "../assets/images/image-3.png";
 import CustomImage from "../components/CustomImage";
 import { getCats } from "../api/cats.api";
+import LeftArrow from "../assets/images/arrow-left.svg";
 
 const Cats = () => {
   const navigate = useNavigate();
@@ -63,7 +64,12 @@ const Cats = () => {
         className="mt-5 text-normalText flex items-center gap-2 text-normalTextColor/60 font-bold uppercase"
         onClick={() => navigate(-1)}
       >
-        <span className="text-xl">←</span> Back
+        <img
+          src={LeftArrow}
+          alt="arrow right"
+          className="w-[16px] lg:w-[20px] relative top-[-1px]"
+        />{" "}
+        <p>Back</p>
       </button>
       <h2 className="mt-5 mb-12 text-lgCatPageTitle text-normalTextColor font-bold">
         All cat breeds!

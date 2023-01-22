@@ -5,6 +5,7 @@ import SleepingCat from "../assets/images/image-2.png";
 import PawsCat from "../assets/images/image-1.png";
 import BackpackCat from "../assets/images/image-3.png";
 import CustomImage from "./CustomImage";
+import RightArrow from "../assets/images/arrow-right.svg";
 
 const WhyAdoptCat = () => {
   return (
@@ -26,7 +27,7 @@ const WhyAdoptCat = () => {
           className="mt-5 lg:mt-16 text-smPreTitle lg:text-normalText flex items-center gap-2 text-normalTextColor/60 font-bold uppercase"
         >
           <p>Read more</p>
-          <span>→</span>
+          <img src={RightArrow} alt="arrow right" className="w-[12px] lg:w-[20px]" />
         </Link>
       </div>
       <div className="flex items-start gap-3 lg:gap-7 mt-10 lg:mt-0">

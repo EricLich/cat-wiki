@@ -6,6 +6,7 @@ import type { Cat as CatType } from "../utils/types";
 import CatFullInfo from "../components/CatFullInfo";
 import { getCatImages, getCats } from "../api/cats.api";
 import OtherCatImages from "../components/OtherCatImages";
+import LeftArrow from "../assets/images/arrow-left.svg";
 
 const Cat = () => {
   const navigate = useNavigate();
@@ -53,7 +54,12 @@ const Cat = () => {
         className="mt-5 text-normalText flex items-center gap-2 text-normalTextColor/60 font-bold uppercase"
         onClick={() => navigate(-1)}
       >
-        <span className="text-xl">←</span> Back
+        <img
+          src={LeftArrow}
+          alt="arrow right"
+          className="w-[16px] lg:w-[20px] relative top-[-1px]"
+        />{" "}
+        <p>Back</p>
       </button>
       <CatFullInfo
         selectedCat={selectedCat!}

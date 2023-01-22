@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 
 import DiscoverBreedsShowcase from "./DiscoverBreedsShowcase";
 import { getCats, getDiscoverCatsImages } from "../api/cats.api";
+import RightArrow from "../assets/images/arrow-right.svg";
 
 const DiscoverBreeds = () => {
   const [imagesIds, setImagesIds] = useState<string[]>([]);
@@ -52,10 +53,14 @@ const DiscoverBreeds = () => {
         </h1>
         <Link
           to={"/cats"}
-          className="mt-[10px] lg:self-end  text-smPreTitle lg:text-normalText flex items-center gap-2 text-normalTextColor/60 font-bold uppercase"
+          className="mt-[10px] lg:mt-0 lg:self-end  text-smPreTitle lg:text-normalText flex items-center gap-2 text-normalTextColor/60 font-bold uppercase"
         >
           <p>See more</p>
-          <span>→</span>
+          <img
+            src={RightArrow}
+            alt="arrow right"
+            className="w-[12px] lg:w-[20px] relative lg:top-[-1px]"
+          />
         </Link>
       </div>
       <DiscoverBreedsShowcase
