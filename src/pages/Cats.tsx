@@ -22,7 +22,6 @@ const Cats = () => {
   const renderCats = useMemo(() => {
     if (cats) {
       return cats.map((cat, index: number) => {
-        console.log(cat);
         return (
           <div
             className="flex flex-col lg:flex-row items-center justify-start gap-4 lg:gap-12"
