@@ -5,7 +5,12 @@ import { Combobox } from "@headlessui/react";
 import { getCats } from "../api/cats.api";
 import { Link, useNavigate } from "react-router-dom";
 
-const SearchBar = () => {
+type SearchBarProps = {
+  mobileSearchOpen: boolean;
+  setMobileSearchOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const SearchBar: React.FC<SearchBarProps> = ({ mobileSearchOpen, setMobileSearchOpen }) => {
   const [searching, setSearching] = useState<string>("");
   const navigate = useNavigate();
   const { data: cats } = useQuery(["cats"], getCats);
@@ -16,7 +21,9 @@ const SearchBar = () => {
       : [];
 
   return (
-    <div className="relative flex items-center justify-between gap-2 px-[13px] lg:px-[26px] bg-white w-full max-w-[150px] lg:max-w-[395px] h-[30px] lg:h-[70px] rounded-[59px]">
+    <div
+      className={`relative flex items-center justify-between gap-2 px-[13px] lg:px-[26px] bg-white w-full  lg:max-w-[395px] h-[30px] lg:h-[70px] rounded-[59px]`}
+    >
       <Combobox value={filteredCatBreeds} onChange={(value) => navigate(`/cats/${value}`)}>
         <Combobox.Input
           type="text"
@@ -28,10 +35,12 @@ const SearchBar = () => {
 
         <Combobox.Input
           type="text"
-          className="lg:hidden smHeroDescLeading w-[80%] text-xs focus:outline-none"
+          className="lg:hidden smHeroDescLeading w-full text-xs focus:outline-none focus-within:outline-none"
           placeholder="Search"
           value={searching}
           onChange={(e) => setSearching(e.target.value)}
+          onTouchEnd={() => setMobileSearchOpen(true)}
+          onBlur={() => setMobileSearchOpen(false)}
         />
         <i className="w-[10px] lg:w-[17px]">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#291507">
@@ -39,22 +48,26 @@ const SearchBar = () => {
           </svg>
         </i>
         {searching && (
-          <Combobox.Options className="px-2 py-2 absolute z-50 bg-white left-0 top-[110%] w-full h-auto min-h-[2px] max-h-[200px] overflow-y-auto rounded-xl flex flex-col">
-            {filteredCatBreeds.map((cat) => (
-              <Combobox.Option
-                as={Link}
-                to={`/cats/${cat.id}`}
-                key={cat.id}
-                value={cat.id}
-                className={({ active }) =>
-                  `text-normalText hover:bg-gray-200 w-full py-3 px-2 ${
-                    active ? "bg-gray-200" : ""
-                  } rounded-md`
-                }
-              >
-                {cat.name}
-              </Combobox.Option>
-            ))}
+          <Combobox.Options className="p-2 absolute z-50 bg-white left-0 top-[110%] w-full h-auto min-h-[2px] max-h-[200px] overflow-y-auto rounded-xl flex flex-col">
+            {filteredCatBreeds.length > 0 ? (
+              filteredCatBreeds.map((cat) => (
+                <Combobox.Option
+                  as={Link}
+                  to={`/cats/${cat.id}`}
+                  key={cat.id}
+                  value={cat.id}
+                  className={({ active }) =>
+                    `text-smPreTitle lg:text-normalText hover:bg-gray-200 w-full py-4 lg:py-3 px-2 ${
+                      active ? "bg-gray-200" : ""
+                    } rounded-md`
+                  }
+                >
+                  {cat.name}
+                </Combobox.Option>
+              ))
+            ) : (
+              <p className="text-smPreTitle lg:text-normalText">No matches</p>
+            )}
           </Combobox.Options>
         )}
       </Combobox>
