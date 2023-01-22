@@ -24,7 +24,7 @@ const DiscoverBreedsShowcase: React.FC<DiscoverBreedsShowcaseProps> = ({
           <CustomImage
             src={img.url}
             alt={`${img.breeds[0].name} image`}
-            className="lg:w-full w-[135px] md:w-[150px] lg:min-h-[220px] h-[135px] md:h-[150px] lg:max-h-[220px] rounded-2xl lg:rounded-3xl overflow-hidden"
+            className="lg:w-full w-[135px] md:w-[150px] lg:min-h-[220px] h-[135px] md:h-[150px] lg:max-h-[220px]"
             extraLoader={fetchingCatImages}
           />
           <p className="mt-2 lg:mt-5 text-smPreTitle lg:text-normalText font-semibold">

@@ -30,7 +30,7 @@ const Cats = () => {
             <CustomImage
               src={cat.image ? cat.image.url : BackpackCat}
               alt={`${cat.name} image`}
-              className="lg:w-[170px] w-full h-[250px] lg:h-[170px] rounded-[24px] lg:object-cover overflow-hidden"
+              className="lg:w-[170px] w-full h-[250px] lg:h-[170px] rounded-[24px]"
             />
             <Link to={`/cats/${cat.id}`} className="flex flex-col items-start gap-2 lg:gap-6">
               <h3 className="text-lgHeroDesc lg:text-lgCatPageTitle text-normalTextColor font-semibold">

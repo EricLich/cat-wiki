@@ -18,7 +18,7 @@ const OtherCatImages: React.FC<OtherCatImagesProps> = ({ otherImages }) => {
             key={image.id}
             src={image.url}
             alt={`other image n${index}`}
-            className="lg:w-[278px] h-[280px] lg:h-[278px] rounded-3xl object-cover overflow-hidden"
+            className="lg:w-[278px] h-[280px] lg:h-[278px]"
           />
         ))}
       </div>

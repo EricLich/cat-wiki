@@ -34,18 +34,18 @@ const WhyAdoptCat = () => {
           <CustomImage
             src={SleepingCat}
             alt="cat inside backpack"
-            className="w-[172px] lg:w-[273px] h-[105px] lg:h-[167px] mb-3 lg:mb-[28px] rounded-[10px] object-cover"
+            className="w-[172px] lg:w-[273px] h-[105px] lg:h-[167px] mb-3 lg:mb-[28px]"
           />
           <CustomImage
             src={PawsCat}
             alt="cat inside backpack"
-            className="w-[120px] lg:w-[195px] h-[184px] lg:h-[293px] rounded-[10px] object-cover"
+            className="w-[120px] lg:w-[195px] h-[184px] lg:h-[293px]"
           />
         </div>
         <CustomImage
           src={BackpackCat}
           alt="cat inside backpack"
-          className="w-[150px] lg:w-[238px] h-[242px] lg:h-[385px] rounded-[10px] object-cover"
+          className="w-[150px] lg:w-[238px] h-[242px] lg:h-[385px]"
         />
       </div>
     </section>

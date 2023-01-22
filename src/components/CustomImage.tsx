@@ -18,14 +18,13 @@ const CustomImage: React.FC<CustomImageProps> = ({ alt, src, className, extraLoa
           baseColor="#c4b9af"
           highlightColor="#b5a599"
           style={{ width: "100%", height: "100%" }}
+          className="!rounded-2xl"
         />
       )}
       <img
         src={src}
         alt={alt}
-        className={`w-full h-full object-cover rounded-2xl lg:rounded-3xl ${
-          loadingImage ? "hidden" : "block"
-        }`}
+        className={`w-full h-full object-cover rounded-2xl  ${loadingImage ? "hidden" : "block"}`}
         onLoad={() => setLoadingImage(false)}
       />
     </div>
