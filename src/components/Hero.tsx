@@ -10,7 +10,7 @@ const Hero = () => {
       id="hero"
       className="w-full h-[250px] lg:h-[538px] bg-[url('./assets/images/HeroImagesm.png')] lg:bg-[url('./assets/images/HeroImagelg.png')] bg-cover bg-center bg-no-repeat rounded-t-[42px] flex items-start justify-start px-[29px] lg:px-[108px] pt-[20px] lg:pt-[115px] "
     >
-      <div className="flex mt-9 flex-col items-start justify-start">
+      <div className="flex mt-9 lg:mt-0 flex-col items-start justify-start">
         <img
           src={LogoFull}
           alt="catwiki logo inverted color"
