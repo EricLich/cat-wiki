@@ -40,7 +40,7 @@ const DiscoverBreeds = () => {
   return (
     <section
       id="discover-breeds"
-      className="w-full bg-breedsBg h-[520px] lg:h-[650px] rounded-b-3xl pt-[20px] lg:pt-[40px] px-[30px] lg:px-[108px]"
+      className="w-full bg-breedsBg h-[520px] md:h-[350px] lg:h-[650px] rounded-b-3xl pt-[20px] lg:pt-[40px] pb-4 px-[30px] lg:px-[108px]"
     >
       <p className="relative text-smPreTitle lg:text-normalText text-normalTextColor">
         Most Searched Breeds
@@ -58,7 +58,10 @@ const DiscoverBreeds = () => {
           <span>→</span>
         </Link>
       </div>
-      <DiscoverBreedsShowcase catImages={catImages} fetchingCatImages={fetchingCatImages && isLoading} />
+      <DiscoverBreedsShowcase
+        catImages={catImages}
+        fetchingCatImages={fetchingCatImages && isLoading}
+      />
     </section>
   );
 };
