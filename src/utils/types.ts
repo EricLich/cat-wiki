@@ -39,6 +39,12 @@ export type Cat = {
   wikipedia_url: string;
   hypoallergenic: number;
   reference_image_id: string;
+  image: {
+    height: number;
+    width: number;
+    id: string;
+    url: string;
+  }
 };
 
 export type CatImageResponse = {

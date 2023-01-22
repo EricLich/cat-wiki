@@ -1,7 +1,6 @@
 import React from "react";
-import { useQuery } from "react-query";
-import { getCatImages } from "../api/cats.api";
-import { Cat, CatImageResponse } from "../utils/types";
+
+import type { Cat, CatImageResponse } from "../utils/types";
 import CatLevel from "./CatLevel";
 import CustomImage from "./CustomImage";
 

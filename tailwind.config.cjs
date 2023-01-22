@@ -29,6 +29,7 @@ module.exports = {
         'lgHeroDescLeading': '29px',
         'smHeroDescLeading': '12px',
         'lgCatPageTitleLeading': '44px',
+        'textCatsPage': '22px',
       },
       colors: {
         'breedsBg': '#E3E1DC',

@@ -10,7 +10,12 @@ import OtherCatImages from "../components/OtherCatImages";
 const Cat = () => {
   const [selectedCat, setSelectedCat] = useState<CatType>();
   let { catId } = useParams();
-  const { data } = useQuery(["cats"], getCats);
+  const { data } = useQuery(["cats"], getCats, {
+    cacheTime: 0,
+    refetchOnWindowFocus: false,
+    keepPreviousData: true,
+    staleTime: 5 * 60 * 1000,
+  });
 
   const {
     data: catImages,
@@ -20,6 +25,8 @@ const Cat = () => {
     enabled: selectedCat !== undefined,
     cacheTime: 0,
     refetchOnWindowFocus: false,
+    keepPreviousData: true,
+    staleTime: 5 * 60 * 1000,
   });
 
   useEffect(() => {
@@ -27,6 +34,10 @@ const Cat = () => {
       setSelectedCat((data as CatType[])?.find((cat: CatType) => cat.id === catId));
     }
   }, [data]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!catImages)
     return (

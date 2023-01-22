@@ -14,6 +14,8 @@ const DiscoverBreeds = () => {
   } = useQuery(["cats"], getCats, {
     refetchOnWindowFocus: false,
     refetchInterval: 360000,
+    keepPreviousData: true,
+    staleTime: 5 * 60 * 1000,
   });
 
   const {
@@ -25,6 +27,8 @@ const DiscoverBreeds = () => {
     refetchOnWindowFocus: false,
     refetchInterval: 360000,
     cacheTime: 360000,
+    keepPreviousData: true,
+    staleTime: 5 * 60 * 1000,
   });
 
   useEffect(() => {
