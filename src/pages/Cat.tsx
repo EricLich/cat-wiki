@@ -53,7 +53,7 @@ const Cat = () => {
         className="mt-5 text-normalText flex items-center gap-2 text-normalTextColor/60 font-bold uppercase"
         onClick={() => navigate(-1)}
       >
-        <span>←</span> Back
+        <span className="text-xl">←</span> Back
       </button>
       <CatFullInfo
         selectedCat={selectedCat!}
