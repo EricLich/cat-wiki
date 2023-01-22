@@ -24,7 +24,7 @@ const CatFullInfo: React.FC<CatFullInfoProps> = ({
         <CustomImage
           src={catFeaturedImage.url}
           alt={`${selectedCat.name} featured image`}
-          className="lg:h-[470px] h-[380px] lg:w-[470px] object-cover rounded-3xl"
+          className="lg:h-[470px] h-[380px] w-full lg:w-[470px] object-cover rounded-3xl overflow-hidden"
           extraLoader={fetchingCatImages}
         />
       ) : (

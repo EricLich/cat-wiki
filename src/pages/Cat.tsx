@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 
-import { Cat as CatType } from "../utils/types";
-import { getCatImages, getCats } from "../api/cats.api";
+import type { Cat as CatType } from "../utils/types";
 import CatFullInfo from "../components/CatFullInfo";
+import { getCatImages, getCats } from "../api/cats.api";
 import OtherCatImages from "../components/OtherCatImages";
 
 const Cat = () => {
+  const navigate = useNavigate();
   const [selectedCat, setSelectedCat] = useState<CatType>();
   let { catId } = useParams();
   const { data } = useQuery(["cats"], getCats, {
@@ -41,14 +42,24 @@ const Cat = () => {
 
   if (!catImages)
     return (
-      <div className="h-[85vh] text-normalTextColor text-lgTitle grid place-content-center font-semibold">
+      <div className="h-[88vh] lg:h-[85vh] text-normalTextColor text-lgHeroDesc lg:text-lgTitle grid place-content-center font-semibold">
         <h2>Loading cat...</h2>
       </div>
     );
 
   return (
     <>
-      <CatFullInfo selectedCat={selectedCat!} catFeaturedImage={catImages[0]} fetchingCatImages={fetchingCatImages} />
+      <button
+        className="mt-5 text-normalText flex items-center gap-2 text-normalTextColor/60 font-bold uppercase"
+        onClick={() => navigate(-1)}
+      >
+        <span>←</span> Back
+      </button>
+      <CatFullInfo
+        selectedCat={selectedCat!}
+        catFeaturedImage={catImages[0]}
+        fetchingCatImages={fetchingCatImages}
+      />
       <OtherCatImages otherImages={catImages.slice(1, catImages.length)} />
     </>
   );

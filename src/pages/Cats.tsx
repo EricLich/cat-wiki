@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React, { useEffect, useMemo } from "react";
 import { useQuery } from "react-query";
 
@@ -7,6 +7,7 @@ import CustomImage from "../components/CustomImage";
 import { getCats } from "../api/cats.api";
 
 const Cats = () => {
+  const navigate = useNavigate();
   const {
     data: cats,
     error: catFetchError,
@@ -59,7 +60,15 @@ const Cats = () => {
 
   return (
     <>
-      <h2 className="mb-12 text-lgCatPageTitle text-normalTextColor font-bold">All cat breeds!</h2>
+      <button
+        className="mt-5 text-normalText flex items-center gap-2 text-normalTextColor/60 font-bold uppercase"
+        onClick={() => navigate(-1)}
+      >
+        <span>←</span> Back
+      </button>
+      <h2 className="mt-5 mb-12 text-lgCatPageTitle text-normalTextColor font-bold">
+        All cat breeds!
+      </h2>
       <div className="flex flex-col items-start gap-12 lg:gap-14">
         <>{cats && renderCats}</>
       </div>
