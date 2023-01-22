@@ -23,17 +23,20 @@ const Cats = () => {
       return cats.map((cat, index: number) => {
         console.log(cat);
         return (
-          <div className="flex items-center justify-start gap-12" key={cat.id}>
+          <div
+            className="flex flex-col lg:flex-row items-center justify-start gap-4 lg:gap-12"
+            key={cat.id}
+          >
             <CustomImage
               src={cat.image ? cat.image.url : BackpackCat}
               alt={`${cat.name} image`}
-              className="!w-[170px] !h-[170px] !rounded-[24px] !object-cover"
+              className="lg:w-[170px] w-full h-[250px] lg:h-[170px] rounded-[24px] lg:object-cover overflow-hidden"
             />
-            <Link to={`/cats/${cat.id}`} className="flex flex-col items-start gap-6">
-              <h3 className="text-lgCatPageTitle text-normalTextColor font-semibold">
+            <Link to={`/cats/${cat.id}`} className="flex flex-col items-start gap-2 lg:gap-6">
+              <h3 className="text-lgHeroDesc lg:text-lgCatPageTitle text-normalTextColor font-semibold">
                 {index + 1}. {cat.name}
               </h3>
-              <p className="text-normalText text-normalTextColor leading-textCatsPage max-w-[888px]">
+              <p className="text-normalText text-normalTextColor leading-textCatsPage max-w-[888px] line-clamp-4 lg:line-clamp-none">
                 {cat.description}
               </p>
             </Link>
@@ -57,7 +60,7 @@ const Cats = () => {
   return (
     <>
       <h2 className="mb-12 text-lgCatPageTitle text-normalTextColor font-bold">All cat breeds!</h2>
-      <div className="flex flex-col items-start gap-14">
+      <div className="flex flex-col items-start gap-12 lg:gap-14">
         <>{cats && renderCats}</>
       </div>
     </>
