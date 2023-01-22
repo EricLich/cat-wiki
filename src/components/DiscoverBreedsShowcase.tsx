@@ -11,16 +11,16 @@ type DiscoverBreedsShowcaseProps = {
 
 const DiscoverBreedsShowcase: React.FC<DiscoverBreedsShowcaseProps> = ({ catImages, fetchingCatImages }) => {
   return (
-    <div className="w-full max-w-[100%] grid grid-cols-2 lg:flex lg:justify-between lg:items-center">
+    <div className="w-full max-w-[100%] grid grid-cols-2 gap-3 lg:flex lg:justify-between lg:items-center">
       {catImages?.map((img: CatImageResponse) => (
         <Link to={`/cats/${img.breeds[0].id}`} key={img.url}>
           <CustomImage
             src={img.url}
             alt={`${img.breeds[0].name} image`}
-            className="!w-[220px] !h-[220px] !object-cover !rounded-3xl"
+            className="!w-[135px] !lg:w-[220px] !h-[135px] !lg:h-[220px] !object-cover !rounded-xl !lg:rounded-3xl"
             extraLoader={fetchingCatImages}
           />
-          <p className="mt-5 text-normalText font-semibold">{img.breeds[0].name}</p>
+          <p className="mt-2 lg:mt-5 text-smPreTitle lg:text-normalText font-semibold">{img.breeds[0].name}</p>
         </Link>
       ))}
     </div>

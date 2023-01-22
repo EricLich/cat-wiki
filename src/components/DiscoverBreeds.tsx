@@ -38,18 +38,21 @@ const DiscoverBreeds = () => {
   }, [isLoading]);
 
   return (
-    <section id="discover-breeds" className="w-full bg-breedsBg h-[650px] rounded-b-3xl pt-[40px] px-[108px]">
-      <p className="relative text-normalText text-normalTextColor">
+    <section
+      id="discover-breeds"
+      className="w-full bg-breedsBg h-[520px] lg:h-[650px] rounded-b-3xl pt-[20px] lg:pt-[40px] px-[30px] lg:px-[108px]"
+    >
+      <p className="relative text-smPreTitle lg:text-normalText text-normalTextColor">
         Most Searched Breeds
-        <span className="absolute top-[120%] w-[60px] h-[3px] bg-normalTextColor left-0"></span>
+        <span className="absolute top-[120%] w-[40px] lg:w-[60px] h-[3px] bg-normalTextColor left-0"></span>
       </p>
-      <div className="flex justify-between mt-[48px] mb-[48px]">
-        <h1 className="text-normalTextColor text-lgTitle max-w-[540px] font-bold leading-lgTitleLeading ">
+      <div className="flex flex-col lg:flex-row lg:justify-between mt-[20px] lg:mt-[48px] mb-[25px] lg:mb-[48px]">
+        <h1 className="text-normalTextColor text-normalText lg:text-lgTitle max-w-[185px] lg:max-w-[540px] font-bold leading-textCatsPage lg:leading-lgTitleLeading ">
           66+ Breeds For you to discover
         </h1>
         <Link
           to={"/cats"}
-          className="self-end text-normalText flex items-center gap-2 text-normalTextColor/60 font-bold uppercase"
+          className="mt-[10px] lg:self-end  text-smPreTitle lg:text-normalText flex items-center gap-2 text-normalTextColor/60 font-bold uppercase"
         >
           <p>See more</p>
           <span>→</span>

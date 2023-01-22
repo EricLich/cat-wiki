@@ -20,6 +20,7 @@ module.exports = {
         'lgHeroDesc': '24px',
         'smHeroDesc': '10px',
         'normalText': '18px',
+        'smPreTitle': '12px',
         'lgCatDetails': '16px',
         'lgCatPageTitle': '36px',
       },
