@@ -10,33 +10,42 @@ type CatFullInfoProps = {
   fetchingCatImages: boolean;
 };
 
-const CatFullInfo: React.FC<CatFullInfoProps> = ({ selectedCat, catFeaturedImage, fetchingCatImages }) => {
+const CatFullInfo: React.FC<CatFullInfoProps> = ({
+  selectedCat,
+  catFeaturedImage,
+  fetchingCatImages,
+}) => {
   return (
-    <section id="cat-info" className="flex items-start gap-[115px] mt-12">
+    <section
+      id="cat-info"
+      className="flex flex-col lg:flex-row  items-start gap-4 lg:gap-[115px] mt-12"
+    >
       {catFeaturedImage ? (
         <CustomImage
           src={catFeaturedImage.url}
           alt={`${selectedCat.name} featured image`}
-          className="!h-[470px] !w-[470px] !object-cover !rounded-3xl"
+          className="lg:h-[470px] h-[380px] lg:w-[470px] object-cover rounded-3xl"
           extraLoader={fetchingCatImages}
         />
       ) : (
         <div className="!h-[470px] !w-[470px] !object-cover !rounded-3xl"></div>
       )}
-      <div className="flex flex-col items-start justify-start max-w-[600px]">
-        <h2 className="text-normalTextColor text-lgCatPageTitle leading-lgCatPageTitleLeading font-semibold mb-6">
+      <div className="flex flex-col items-start justify-start w-full lg:max-w-[600px]">
+        <h2 className="text-normalTextColor text-lgHeroDesc lg:text-lgCatPageTitle leading-lgCatPageTitleLeading font-semibold mb-6">
           {selectedCat.name}
         </h2>
-        <p className="w-auto  text-normalTextColor text-normalText">{selectedCat.description}</p>
-        <p className="text-normalTextColor text-lgCatDetails mt-[33px]">
+        <p className="w-auto  text-normalTextColor text-lgCatDetails lg:text-normalText">
+          {selectedCat.description}
+        </p>
+        <p className="text-normalTextColor text-lgCatDetails mt-[20px] lg:mt-[33px]">
           <span className="font-bold">Temperament:</span> {selectedCat.temperament}
         </p>
 
-        <p className="text-normalTextColor text-lgCatDetails mt-[33px]">
+        <p className="text-normalTextColor text-lgCatDetails mt-[20px] lg:mt-[33px]">
           <span className="font-bold">Origin:</span> {selectedCat.origin}
         </p>
 
-        <p className="text-normalTextColor text-lgCatDetails mt-[33px]">
+        <p className="text-normalTextColor text-lgCatDetails mt-[20px] lg:mt-[33px]">
           <span className="font-bold">Life Span:</span> {selectedCat.life_span}
           {"  "} years
         </p>
