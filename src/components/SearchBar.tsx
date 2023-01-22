@@ -2,7 +2,7 @@ import React from "react";
 
 const SearchBar = () => {
   return (
-    <div className="flex items-center justify-between gap-2 px-[13px] lg:px-[26px] bg-white w-full max-w-[91px] lg:max-w-[395px] h-[30px] lg:h-[70px] rounded-[59px]">
+    <div className="flex items-center justify-between gap-2 px-[13px] lg:px-[26px] bg-white w-full max-w-[120px] lg:max-w-[395px] h-[30px] lg:h-[70px] rounded-[59px]">
       <input
         type="text"
         className="hidden lg:block h-[70%] flex-1 smHeroDescLeading lg:text-normalText focus:outline-none"
