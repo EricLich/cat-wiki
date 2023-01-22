@@ -12,7 +12,7 @@ type CustomImageProps = {
 const CustomImage: React.FC<CustomImageProps> = ({ alt, src, className, extraLoader }) => {
   const [loadingImage, setLoadingImage] = useState<boolean>(true);
   return (
-    <div className={className}>
+    <div className={`${className} ${loadingImage || extraLoader ? "relative -top-[4px]" : ""}`}>
       {(loadingImage || extraLoader) && (
         <Skeleton
           baseColor="#c4b9af"
